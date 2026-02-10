@@ -52,7 +52,9 @@
  * 
 ***********************************************************************************************************/
 
--- Drop the schema if it exists and create it if it does not
+-- DROP THE SCHEMA IF IT EXISTS AND CREATE IT IF IT DOES NOT
+DROP SCHEMA IF EXISTS hr CASCADE;
+
 CREATE SCHEMA IF NOT EXISTS hr;
 SET search_path TO hr;
 
