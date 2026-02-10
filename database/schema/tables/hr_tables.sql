@@ -1,41 +1,41 @@
 /***********************************************************************************************************
- * Project			: HR Schema (Based ib Oracle HR Sample Schema)
- * Script Name		: hr_tables.sql
- * Description		: Creation of core tables for HR Schema in PostgreSQL 16.1
+ * Project			    : HR Schema (Based ib Oracle HR Sample Schema)
+ * Script Name		  : hr_tables.sql
+ * Description		  : Creation of core tables for HR Schema in PostgreSQL 16.1
  * 
- * Database			: PostgreSQL 16.1
+ * Database			    : PostgreSQL 16.1
  * Database Engine	: PostgreSQL Native
- * Database Host	: Aiven - PostgreSQL
- * Schema Name 		: HR
+ * Database Host	  : Aiven - PostgreSQL
+ * Schema Name      : HR
  * 
- * Author			: PaKo Araya
- * E-mail			: franarayah@gmail.com
- * Company			: [Personal Project]
- * Created Date		: 2026-02-10
- * Last Modified	: 2026-02-10
+ * Author			      : PaKo Araya
+ * E-mail			      : franarayah@gmail.com
+ * Company			    : [Personal Project]
+ * Created Date		  : 2026-02-10
+ * Last Modified	  : 2026-02-10
  * 
- * Script Version	: 1.0.0
+ * Script Version	  : 1.0.0
  * Database Version Tested	: 16.1.0
- * Charset			: UTF8
- * Collation		: en_US.UTF-8
+ * Charset			    : UTF8
+ * Collation		    : en_US.UTF-8
  * 
- * Dependencies		: None
+ * Dependencies		  : None
  * Related Scripts	:
  * 	- 002_constraints.sql
  * 	- 003_indexes.sql
  * 
- * Execution Tool	: DBeaver / Postgre CLI
- * Environment		: [X]Development | [-]Test | [-]Production
- * Execution Mode	: Manual
- * Backup Needed	: Yes
- * Rollback Plan	: Drop created tables
- * Estimated Time	: < 1 minute
- * Risk Level		: LOW
+ * Execution Tool	  : DBeaver / Postgre CLI
+ * Environment		  : [X]Development | [-]Test | [-]Production
+ * Execution Mode	  : Manual
+ * Backup Needed	  : Yes
+ * Rollback Plan	  : Drop created tables
+ * Estimated Time	  : < 1 minute
+ * Risk Level		    : LOW
  * 
- * Purpose			: Educational Implementation of Oracle HR Schema in PostgreSQL
- * Compatibilty		: ANSI SQL Standard + PostgreSQL Extensions
- * Transactional	: Yes (ACID Compliant)
- * Idempotent		: Yes
+ * Purpose			    : Educational Implementation of Oracle HR Schema in PostgreSQL
+ * Compatibilty		  : ANSI SQL Standard + PostgreSQL Extensions
+ * Transactional	  : Yes (ACID Compliant)
+ * Idempotent		    : Yes
  * 
  * Notes:
  * - This script creates only table structures (DDL).
@@ -44,9 +44,9 @@
  * 
  * Change Log:
  * --------------------------------------------------------------------------------------------------------
- * Version	| Date 		 | Author	| Description
+ * Version	| Date 		    | Author	  | Description
  * -------------------------------------------------------------------------------------------------------- 
- * 1.0.0	| 2026-02-10 | P. Araya	| Initial version - Tables creation
+ * 1.0.0	  | 2026-02-10  | P. Araya	| Initial version - Tables creation
  * 
  * 
  * 
