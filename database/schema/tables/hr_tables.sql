@@ -1,5 +1,5 @@
 /***********************************************************************************************************
- * Project			    : HR Schema (Based ib Oracle HR Sample Schema)
+ * Project			    : HR Schema (Based on Oracle HR Sample Schema)
  * Script Name		  : hr_tables.sql
  * Description		  : Creation of core tables for HR Schema in PostgreSQL 16.1
  * 
