@@ -79,6 +79,10 @@ ORDER BY e1.employee_id;
  * Develop a query that lists all countries by region. The data to be 
  * displayed is the region's name along with the names of its countries.
 */
+SELECT r.region_id , r.region_name, c.country_name 
+FROM hr.regions r 
+JOIN hr.countries c ON r.region_id = c.region_id
+ORDER BY r.region_id, c.country_name ;
 
 -- =====================================================================
 
