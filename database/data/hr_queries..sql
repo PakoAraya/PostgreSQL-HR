@@ -41,6 +41,17 @@ SET search_path TO hr;
  * hire date, sorting the results by departments and hire date with the most
  * recent hire appearing first.
 */
+SELECT e.first_name, e.department_id, e.hire_date 
+FROM hr.employees e
+ORDER BY e.department_id, e.hire_date DESC ;
+
+-- Another Way
+SELECT 
+  CONCAT(e.first_name, ' ', e.last_name),
+  e.department_id,
+  e.hire_date 
+FROM hr.employees e
+ORDER BY e.department_id, e.hire_date DESC;
 
 -- =====================================================================
 
