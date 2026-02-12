@@ -47,7 +47,7 @@ ORDER BY e.department_id, e.hire_date DESC ;
 
 -- Another Way
 SELECT 
-  CONCAT(e.first_name, ' ', e.last_name),
+  CONCAT(e.first_name, ' ', e.last_name) AS "Employee Name",
   e.department_id,
   e.hire_date 
 FROM hr.employees e
@@ -61,6 +61,16 @@ ORDER BY e.department_id, e.hire_date DESC;
  * and their respective managers, along with the job titles of both
  * the employee and their manager.
 */
+SELECT 
+  CONCAT(e1.employee_id, ' - ', e1.first_name, ' ', e1.last_name) AS "Employee",
+  j1.job_title AS "Employee Title",
+  CONCAT(e2.employee_id, ' - ', e2.first_name, ' ', e2.last_name) AS "Manager",
+  j2.job_title AS "Manager Title"
+FROM hr.employees e1
+JOIN hr.jobs j1 ON e1.job_id = j1.job_id
+LEFT JOIN hr.employees e2 ON e1.manager_id = e2.employee_id 
+LEFT JOIN hr.jobs j2 ON e2.job_id = j2.job_id 
+ORDER BY e1.employee_id;
 
 -- =====================================================================
 
