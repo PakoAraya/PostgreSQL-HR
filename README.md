@@ -1,8 +1,10 @@
 # HR-DB: Oracle Human Resources Schema for PostgreSQL 16.1
 
-### Ported & Enhanced by [PaKo Araya](https://www.linkedin.com/in/franarayah/)
+### Ported & Enhanced by **PaKo Araya**
+🔗 LinkedIn: https://www.linkedin.com/in/franarayah/
 
-on [<img src="https://simpleicons.org/icons/github.svg?color=#bdbdbd" width="20" height="20" style="vertical-align:middle"> **GitHub**](https://github.com/PakoAraya/PostgreSQL-HR) and [<img src="https://simpleicons.org/icons/gitlab.svg?color=#bdbdbd" width="20" height="20" style="vertical-align:middle"> **GitLab**](https://gitlab.com/PaKoAraya/postgresql-hr)
+
+![GitHub](https://img.shields.io/badge/GitHub-PaKoAraya-0D1117?style=for-the-badge&logo=github&logoColor=white) ![GitLab](https://img.shields.io/badge/GitLab-PaKoAraya-6B4EFF?style=for-the-badge&logo=gitlab&logoColor=FC6D26)
 
 <img src="database/docs/images/Banner.png" alt="HR-DB Banner" width="100%">
 
@@ -111,13 +113,15 @@ The project recreates the full organizational hierarchy:
 
 | Metric | Values |
 | :--- | :--- |
-| **Last Commit** | [![GitLab Last Commit](https://img.shields.io/gitlab/last-commit/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26)](https://gitlab.com/PaKoAraya/postgresql-hr/-/commits/main) [![GitHub Last Commit](https://img.shields.io/github/last-commit/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717)](https://github.com/PakoAraya/PostgreSQL-HR/commits/main) |
-| **Total Commits** | [![GitLab](https://img.shields.io/badge/GitLab-12_Commits-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)](https://gitlab.com/PaKoAraya/postgresql-hr) [![GitHub](https://img.shields.io/badge/GitHub-12_Commits-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PakoAraya/PostgreSQL-HR) |
-| **Repo Size** | [![GitLab](https://img.shields.io/github/repo-size/PaKoAraya/PostgreSQL-HR?style=for-the-badge&color=blue)](https://github.com/PakoAraya/PostgreSQL-HR) |
-| **Project Issues** | [![GitLab Issues](https://img.shields.io/gitlab/issues/open/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=Report%20on%20GitLab)](https://gitlab.com/PaKoAraya/postgresql-hr/-/issues) |
-| **Merge Requests** | [![GitLab Merge Requests](https://img.shields.io/gitlab/merge-requests/open/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=MRs%20on%20GitLab)](https://gitlab.com/PaKoAraya/postgresql-hr/-/merge_requests) |
-| **Database Logic** | [![SQL Scripts](https://img.shields.io/badge/SQL_Scripts-10_Files-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://github.com/PaKoAraya/PostgreSQL-HR/tree/main/database) |
-| **Total Lines** | [![SQL Lines](https://img.shields.io/badge/SQL_Lines-~500-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://github.com/PaKoAraya/PostgreSQL-HR/tree/main/database) |
+| **Last Commit** | [![GitLab](https://img.shields.io/gitlab/last-commit/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=GitLab)](https://gitlab.com/PaKoAraya/postgresql-hr/-/commits/main) [![GitHub](https://img.shields.io/github/last-commit/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=GitHub)](https://github.com/PakoAraya/PostgreSQL-HR/commits/main) |
+| **Total Commits** | [![GitLab Commits](https://img.shields.io/github/commit-activity/t/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=GitLab)](https://gitlab.com/PaKoAraya/postgresql-hr/-/commits/main) [![GitHub](https://img.shields.io/github/commit-activity/t/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=GitHub)](https://github.com/PakoAraya/PostgreSQL-HR/commits/main) |
+| **Commit Activity** | [![Year](https://img.shields.io/github/commit-activity/y/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=Year)](https://github.com/PakoAraya/PostgreSQL-HR/commits/main) [![Month](https://img.shields.io/github/commit-activity/m/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=Month)](https://github.com/PakoAraya/PostgreSQL-HR/commits/main) |
+| **Repo Size** | [![Size](https://img.shields.io/github/repo-size/PaKoAraya/PostgreSQL-HR?style=for-the-badge&color=blue&label=Size)](https://github.com/PakoAraya/PostgreSQL-HR) [![Languages](https://img.shields.io/github/languages/count/PaKoAraya/PostgreSQL-HR?style=for-the-badge&color=blue&label=Languages)](https://github.com/PakoAraya/PostgreSQL-HR) |
+| **Project Issues** | [![GitLab](https://img.shields.io/gitlab/issues/open/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=GitLab)](https://gitlab.com/PaKoAraya/postgresql-hr/-/issues) [![GitHub](https://img.shields.io/github/issues/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=GitHub)](https://github.com/PakoAraya/PostgreSQL-HR/issues) |
+| **Merge/Pull Requests** | [![GitLab](https://img.shields.io/gitlab/merge-requests/open/PaKoAraya/postgresql-hr?style=for-the-badge&logo=gitlab&logoColor=white&color=FC6D26&label=GitLab%20MRs)](https://gitlab.com/PaKoAraya/postgresql-hr/-/merge_requests) [![GitHub](https://img.shields.io/github/issues-pr/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717&label=GitHub%20PRs)](https://github.com/PakoAraya/PostgreSQL-HR/pulls) |
+| **Stars & Forks** | [![Stars](https://img.shields.io/github/stars/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717)](https://github.com/PakoAraya/PostgreSQL-HR/stargazers) [![Forks](https://img.shields.io/github/forks/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717)](https://github.com/PakoAraya/PostgreSQL-HR/network/members) |
+| **Contributors** | [![Contributors](https://img.shields.io/github/contributors/PaKoAraya/PostgreSQL-HR?style=for-the-badge&logo=github&logoColor=white&color=181717)](https://github.com/PakoAraya/PostgreSQL-HR/graphs/contributors) |
+| **Database Logic** | [![SQL Scripts](https://img.shields.io/badge/SQL_Scripts-10_Files-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://github.com/PakoAraya/PostgreSQL-HR/tree/main/database) |
 | **License** | [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/PakoAraya/PostgreSQL-HR/blob/main/LICENSE) |
 
 ---
