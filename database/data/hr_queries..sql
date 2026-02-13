@@ -91,6 +91,9 @@ ORDER BY r.region_id, c.country_name ;
  * Run a query that displays employee ID, first and last names, and the 
  * start and end dates of the employee's job history.
 */
+SELECT e.employee_id, e.first_name, e.last_name, jh.start_date, jh.end_date 
+FROM hr.employees e 
+JOIN hr.job_history jh ON e.employee_id = jh.employee_id ;
 
 -- =====================================================================
 
