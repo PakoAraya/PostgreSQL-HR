@@ -103,6 +103,13 @@ JOIN hr.job_history jh ON e.employee_id = jh.employee_id ;
  * the title "Employee", their salary, commission percentage, 
  * total commission, and total salary.
 */
+SELECT 
+  CONCAT(e.first_name,' ', e.last_name) AS "Employee",
+  e.salary, 
+  COALESCE(e.commission_pct, 0) AS "Commission %",
+  e.salary * COALESCE(e.commission_pct, 0) AS "Commission Amount",
+  e.salary + (e.salary * COALESCE(e.commission_pct, 0)) AS "Total Salary"
+FROM hr.employees e;
 
 -- =====================================================================
 
