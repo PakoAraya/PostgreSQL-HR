@@ -160,7 +160,10 @@ WHERE c.country_name != 'United States of America' ;
  * Perform a query that displays the region code, region name, and the 
  * names of the countries located in "Asia".
 */
-
+SELECT r.region_id, r.region_name, c.country_name 
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id 
+WHERE r.region_name LIKE 'Asia' ;
 
 -- =====================================================================
 
