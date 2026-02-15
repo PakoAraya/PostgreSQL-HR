@@ -263,6 +263,38 @@ GROUP BY d.department_id ;
  * United Kingdom (UK) and the United States (US), specifically in the 
  * states of Washington and Oxford.
 */
+SELECT 
+    r.region_name,
+    c.country_name,
+    l.state_province,
+    e.employee_id AS manager_id,
+    CONCAT(e.first_name, ' - ', e.last_name) AS "Name"
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id
+JOIN hr.locations l ON c.country_id = l.country_id
+JOIN hr.departments d ON l.location_id = d.location_id
+JOIN hr.employees e ON d.manager_id = e.employee_id -- United with the boss and dpto
+WHERE 
+    (c.country_name = 'United Kingdom' OR c.country_name = 'United States of America')
+    AND 
+    (l.state_province = 'Washington' OR l.state_province = 'Oxford')
+ORDER BY c.country_name;
+
+-- The Improve Version
+SELECT 
+    r.region_name,
+    c.country_name,
+    l.state_province,
+    e.employee_id AS manager_id,
+    CONCAT(e.first_name, ' ', e.last_name) AS "Manager Name"
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id
+JOIN hr.locations l ON c.country_id = l.country_id
+JOIN hr.departments d ON l.location_id = d.location_id
+JOIN hr.employees e ON d.manager_id = e.employee_id 
+WHERE c.country_name IN ('United Kingdom', 'United States of America')
+  AND l.state_province IN ('Washington', 'Oxford')
+ORDER BY c.country_name;
 
 -- =====================================================================
 
