@@ -133,7 +133,6 @@ JOIN hr.jobs j ON e.job_id = j.job_id
 WHERE e.employee_id IN (100, 125)
 AND e.salary > 6000;
 
-
 -- =====================================================================
 
 
@@ -141,7 +140,18 @@ AND e.salary > 6000;
  * Develop a query that lists the location code, city, and department
  * name only for those located outside the United States (US).
 */
+-- One Way
+SELECT l.location_id, l.city, d.department_name 
+FROM hr.locations l
+JOIN hr.departments d ON l.location_id = d.location_id 
+WHERE l.country_id != 3;
 
+-- Another Way
+SELECT l.location_id, l.city, d.department_name 
+FROM hr.departments d 
+JOIN hr.locations l ON d.location_id = l.location_id 
+JOIN hr.countries c ON l.country_id = c.country_id 
+WHERE c.country_name != 'United States of America' ;
 
 -- =====================================================================
 
@@ -150,6 +160,7 @@ AND e.salary > 6000;
  * Perform a query that displays the region code, region name, and the 
  * names of the countries located in "Asia".
 */
+
 
 -- =====================================================================
 
