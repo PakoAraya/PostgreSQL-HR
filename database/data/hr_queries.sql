@@ -207,6 +207,18 @@ WHERE location_id > 2400;
  * Include the location code, street address, and postal code with their 
  * respective labels. Exclude records where the postal code is NULL.
 */
+SELECT 
+  r.region_id AS "Region Alias",
+  r.region_name AS "Region Name",
+  'Country Code: [' || c.country_id || '] Name: [' || c.country_name || ']' AS "Country Info",
+  l.location_id AS "Location Code",
+  l.street_address AS "Street Address",
+  l.postal_code AS "Postal Code"
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id 
+JOIN hr.locations l ON c.country_id = l.country_id 
+WHERE l.postal_code IS NOT NULL; -- Excluimos los nulos
+
 
 -- =====================================================================
 
