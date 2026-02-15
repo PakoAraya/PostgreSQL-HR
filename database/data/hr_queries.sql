@@ -119,6 +119,20 @@ FROM hr.employees e;
  * are managers, whose ID is 100 or 125, and whose salary is greater 
  * than 6000.
 */
+-- One Way
+SELECT j.job_title, e.salary 
+FROM hr.employees e 
+JOIN hr.jobs j ON e.job_id = j.job_id 
+WHERE e.employee_id = 100 OR e.employee_id = 125 AND e.salary > 6000;
+
+-- Another Way
+SELECT 
+  j.job_title, e.salary
+FROM hr.employees e
+JOIN hr.jobs j ON e.job_id = j.job_id 
+WHERE e.employee_id IN (100, 125)
+AND e.salary > 6000;
+
 
 -- =====================================================================
 
@@ -127,6 +141,7 @@ FROM hr.employees e;
  * Develop a query that lists the location code, city, and department
  * name only for those located outside the United States (US).
 */
+
 
 -- =====================================================================
 
