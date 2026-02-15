@@ -163,7 +163,7 @@ WHERE c.country_name != 'United States of America' ;
 SELECT r.region_id, r.region_name, c.country_name 
 FROM hr.regions r
 JOIN hr.countries c ON r.region_id = c.region_id 
-WHERE r.region_name LIKE 'Asia' ;
+WHERE r.region_name ILIKE 'Asia' ;
 
 -- =====================================================================
 
@@ -172,6 +172,30 @@ WHERE r.region_name LIKE 'Asia' ;
  * Create a query that lists the region code, region name, location code, 
  * city, and country name for locations with an ID larger than 2400.
 */
+-- One Way
+SELECT r.region_id, r.region_name, l.location_id, l.city, c.country_name 
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id 
+JOIN hr. locations l ON c.country_id = l.country_id 
+WHERE l.location_id > 2400 ;
+
+-- Another Way with CTE
+WITH regional_countries AS (
+    SELECT r.region_id, r.region_name, c.country_id, c.country_name
+    FROM hr.regions r
+    JOIN hr.countries c ON r.region_id = c.region_id
+)
+SELECT rc.region_id, rc.region_name, l.location_id, l.city, rc.country_name
+FROM regional_countries rc
+JOIN hr.locations l ON rc.country_id = l.country_id
+WHERE l.location_id > 2400;
+
+-- Another way with USING
+SELECT region_id, region_name, location_id, city, country_name 
+FROM hr.regions 
+JOIN hr.countries USING (region_id) 
+JOIN hr.locations USING (country_id) 
+WHERE location_id > 2400;
 
 -- =====================================================================
 
