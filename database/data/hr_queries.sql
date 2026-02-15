@@ -217,8 +217,20 @@ SELECT
 FROM hr.regions r
 JOIN hr.countries c ON r.region_id = c.region_id 
 JOIN hr.locations l ON c.country_id = l.country_id 
-WHERE l.postal_code IS NOT NULL; -- Excluimos los nulos
+WHERE l.postal_code IS NOT NULL; -- Exclude the NULLS
 
+-- Another Way
+SELECT 
+    r.region_id AS "Region Alias", 
+    r.region_name AS "Region Name",
+    CONCAT('Country Code: [', c.country_id, '] Name: [', c.country_name, ']') AS "Country Info",
+    l.location_id AS "Location Code",
+    l.street_address AS "Street Address",
+    l.postal_code AS "Postal Code"
+FROM hr.regions r
+JOIN hr.countries c ON r.region_id = c.region_id
+JOIN hr.locations l ON c.country_id = l.country_id
+WHERE l.postal_code IS NOT NULL;
 
 -- =====================================================================
 
@@ -227,6 +239,20 @@ WHERE l.postal_code IS NOT NULL; -- Excluimos los nulos
  * Develop a query that displays the average salary of employees in 
  * departments 30 and 80.
 */
+SELECT 
+  AVG(e.salary)
+ FROM hr.employees e 
+ JOIN hr.departments d ON e.department_id = d.department_id 
+ WHERE d.department_id IN (30, 80);
+ 
+ -- Improve the same query
+SELECT 
+  d.department_id, 
+  ROUND(AVG(e.salary), 2) AS "Average Salary"
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id
+WHERE d.department_id IN (30, 80)
+GROUP BY d.department_id ;
 
 -- =====================================================================
 
