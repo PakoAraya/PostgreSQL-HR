@@ -304,18 +304,27 @@ ORDER BY c.country_name;
  * who work in departments located in countries starting with the 
  * letter 'C', including the country name.
 */
-SELECT *
+SELECT 
+  e.first_name,
+  e.last_name,
+  c.country_name 
 FROM hr.employees e 
 JOIN hr.departments d ON e.department_id = d.department_id 
-;
+JOIN hr.locations l ON d.location_id = l.location_id 
+JOIN hr.countries c ON l.country_id = c.country_id 
+WHERE c.country_name ILIKE 'C%' ;
 
 -- =====================================================================
 
 
 /* 014
  * Develop a query that lists the job title, first name, and last name of
- * the employee with the email 'NKOCHHAR', as of September 21, 1989.
+ * the employee with the email 'NKOCHHAR', as of September 21, 2015.
 */
+SELECT j.job_title, e.first_name, e.last_name 
+FROM hr.employees e 
+JOIN hr.jobs j ON e.job_id = j.job_id 
+WHERE e.email ILIKE('%NKOCHHAR%') AND e.hire_date = '2015-09-21' ;
 
 -- =====================================================================
 
