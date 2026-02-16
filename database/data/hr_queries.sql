@@ -326,6 +326,30 @@ FROM hr.employees e
 JOIN hr.jobs j ON e.job_id = j.job_id 
 WHERE e.email ILIKE('%NKOCHHAR%') AND e.hire_date = '2015-09-21' ;
 
+-- Another Way
+SELECT job_title, first_name, last_name 
+FROM hr.employees 
+JOIN hr.jobs USING (job_id) 
+WHERE email ILIKE '%NKOCHHAR%' AND hire_date = '2015-09-21';
+
+-- Now Usin CTE
+WITH buscado AS (
+    SELECT first_name, last_name, job_id 
+    FROM hr.employees 
+    WHERE email ILIKE '%NKOCHHAR%' AND hire_date = '2015-09-21'
+)
+SELECT j.job_title, b.first_name, b.last_name 
+FROM hr.jobs j
+JOIN buscado b ON j.job_id = b.job_id;
+
+-- With SubQuery
+SELECT 
+    (SELECT job_title FROM hr.jobs j WHERE j.job_id = e.job_id) AS "Job",
+    e.first_name, 
+    e.last_name 
+FROM hr.employees e 
+WHERE e.email ILIKE '%NKOCHHAR%' AND e.hire_date = '2015-09-21';
+
 -- =====================================================================
 
 
@@ -334,6 +358,19 @@ WHERE e.email ILIKE('%NKOCHHAR%') AND e.hire_date = '2015-09-21' ;
  * who were hired more than 180 days ago, earn a commission of at least
  * 20%, and whose first or last name begins with the letter 'J'.
 */
+SELECT 
+    d.department_id, 
+    e.first_name, 
+    e.last_name, 
+    e.salary, 
+    e.commission_pct, 
+    e.hire_date
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+WHERE e.department_id IN (10,20,80)
+  AND e.commission_pct >= 0.20 
+  AND (e.first_name ILIKE 'J%' OR e.last_name ILIKE 'J%')
+  AND (CURRENT_DATE - e.hire_date) > 180;
 
 -- =====================================================================
 
