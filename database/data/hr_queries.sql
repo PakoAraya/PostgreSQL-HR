@@ -304,6 +304,10 @@ ORDER BY c.country_name;
  * who work in departments located in countries starting with the 
  * letter 'C', including the country name.
 */
+SELECT *
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+;
 
 -- =====================================================================
 
