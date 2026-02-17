@@ -539,6 +539,19 @@ HAVING COUNT(*) > 1 ;
  * Develop a query that displays only the first names of employees 
  * that are unique (not repeated).
 */
+SELECT 
+  e.first_name, 
+  COUNT(*) AS "Total"
+FROM hr.employees e 
+GROUP BY e.first_name 
+HAVING COUNT(*) > 1 ;
+
+-- Improve version
+SELECT 
+  e.first_name
+FROM hr.employees e 
+GROUP BY e.first_name 
+HAVING COUNT(*) = 1 ;
 
 -- =====================================================================
 
