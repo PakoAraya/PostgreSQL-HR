@@ -417,7 +417,6 @@ JOIN hr.departments d ON e.department_id = d.department_id
 WHERE d.department_name ILIKE 'IT' 
 ORDER BY e.salary DESC ; 
 
-
 -- =====================================================================
 
 
@@ -426,6 +425,19 @@ ORDER BY e.salary DESC ;
  * address, postal code, and city. Filter for departments 100, 80, and 50 
  * located in "South San Francisco" with a salary between 4000 and 8000.
 */
+SELECT 
+  CONCAT(e.first_name, ' ', e.last_name) AS Name,
+  e.salary,
+  d.department_name,
+  l.street_address,
+  l.postal_code,
+  l.city 
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+JOIN hr.locations l ON d.location_id = l.location_id 
+WHERE d.department_id IN (50, 80, 100)
+AND l.city ILIKE 'South San Francisco'
+AND e.salary between 4000 AND 8000 ;
 
 -- =====================================================================
 
