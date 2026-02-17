@@ -561,6 +561,28 @@ HAVING COUNT(*) = 1 ;
  * Display the region code, region name, and the count of countries, 
  * sorted by the highest count.
 */
+SELECT 
+    r.region_id AS "Region Code",
+    r.region_name AS "Region Name",
+    COUNT(c.country_id) AS "Number of Countries"
+FROM hr.regions r
+LEFT JOIN hr.countries c ON r.region_id = c.region_id 
+GROUP BY r.region_id, r.region_name
+ORDER BY COUNT(c.country_id) DESC;
+
+-- With CTE
+WITH CountryCount AS (
+    SELECT region_id, COUNT(*) as total
+    FROM hr.countries
+    GROUP BY region_id
+)
+SELECT 
+    r.region_id,
+    r.region_name,
+    COALESCE(cc.total, 0) AS "Number of Countries"
+FROM hr.regions r
+LEFT JOIN CountryCount cc ON r.region_id = cc.region_id
+ORDER BY total DESC NULLS LAST;
 
 -- =====================================================================
 
