@@ -525,7 +525,12 @@ ORDER BY d.department_name;
 /* 022
  * Run a query that shows only the first names of employees that are duplicated.
 */
-
+SELECT 
+  e.first_name AS "Name",
+  COUNT(*) AS "Duplicates" 
+FROM hr.employees e
+GROUP BY e.first_name 
+HAVING COUNT(*) > 1 ;
 
 -- =====================================================================
 
