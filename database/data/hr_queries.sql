@@ -450,6 +450,18 @@ AND e.salary between 4000 AND 8000 ;
  * - '011.44.1344.429268' becomes '(011-44-1344-429268)'
  * Sort by employee code.
 */
+SELECT 
+  e.employee_id AS Code,
+  CONCAT(e.last_name, ', ', e.first_name) AS "Names",
+  INITCAP(CONCAT(e.email, '@eisi.ues.edu.sv')) AS "Email",
+  CASE 
+    WHEN LENGTH(e.phone_number) <= 12 THEN
+      '(' || SUBSTR(e.phone_number, 1, 3) || ')-' || REPLACE(SUBSTR(e.phone_number, 5), '.', '-')
+    ELSE
+      '(' || REPLACE(e.phone_number, '.', '-') || ')'
+  END AS "Phone"
+FROM hr.employees e 
+ORDER BY e.employee_id ASC ;
 
 -- =====================================================================
 
