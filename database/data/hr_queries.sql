@@ -584,6 +584,16 @@ FROM hr.regions r
 LEFT JOIN CountryCount cc ON r.region_id = cc.region_id
 ORDER BY total DESC NULLS LAST;
 
+-- Improve the query
+SELECT 
+    r.region_id,
+    r.region_name,
+    COUNT(c.region_id) 
+FROM hr.regions r
+LEFT JOIN hr.countries c ON r.region_id = c.region_id 
+GROUP BY r.region_id, r.region_name
+ORDER BY 3 DESC;
+
 -- =====================================================================
 
 
@@ -591,6 +601,12 @@ ORDER BY total DESC NULLS LAST;
  * Develop a query that lists job IDs and the number of employees 
  * per job, sorted by the count in descending order.
 */
+SELECT 
+  e.job_id, 
+  COUNT(e.job_id) AS "Number of Employees"
+FROM hr.employees e 
+GROUP BY e.job_id 
+ORDER BY COUNT(e.job_id) DESC ;
 
 -- =====================================================================
 
