@@ -463,7 +463,7 @@ SELECT
 FROM hr.employees e 
 ORDER BY e.employee_id ASC ;
 
--- Modern way
+-- Modern Way
 SELECT 
   employee_id AS "Code",
   last_name || ', ' || first_name AS "Names",
@@ -503,6 +503,21 @@ WHERE l.city LIKE 'S%';
  * Develop a query that displays the department ID (as "Department Code") 
  * and the count of employees per department, sorted by department ID.
 */
+SELECT 
+  e.department_id AS "Department Code",
+  COUNT(*) AS "Total of Employees"
+FROM hr.employees e
+GROUP BY e.department_id 
+ORDER BY e.department_id ASC ;
+
+-- Another Way
+SELECT 
+  d.department_name AS "Department",
+  COUNT(e.employee_id) AS "Total"
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id
+GROUP BY d.department_name
+ORDER BY d.department_name;
 
 -- =====================================================================
 
@@ -510,6 +525,7 @@ WHERE l.city LIKE 'S%';
 /* 022
  * Run a query that shows only the first names of employees that are duplicated.
 */
+
 
 -- =====================================================================
 
