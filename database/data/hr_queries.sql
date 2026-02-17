@@ -380,6 +380,24 @@ WHERE e.department_id IN (10,20,80)
  * name of employees whose phone number has the area code 515. 
  * Exclude phone numbers that are not exactly 12 characters long.
 */
+SELECT 
+  e.first_name,
+  e.last_name,
+  d.department_name,
+  e.phone_number 
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+WHERE e.phone_number LIKE ('515%') AND LENGTH(e.phone_number) = 12;
+
+-- Another way more precise
+SELECT 
+  e.first_name,
+  e.last_name,
+  d.department_name,
+  e.phone_number 
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+WHERE e.phone_number LIKE '515_________' ;
 
 -- =====================================================================
 
