@@ -615,6 +615,13 @@ ORDER BY COUNT(e.job_id) DESC ;
  * Develop a query that displays the number of employees per department, 
  * sorted alphabetically by department name.
 */
+SELECT 
+  d.department_name,
+  COUNT(e.department_id) AS "Total Employees"
+FROM hr.employees e 
+JOIN hr.departments d ON e.department_id = d.department_id 
+GROUP BY d.department_id,  d.department_name 
+ORDER BY d.department_name ASC; 
 
 -- =====================================================================
 
