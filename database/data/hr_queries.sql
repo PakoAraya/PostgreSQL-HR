@@ -463,6 +463,20 @@ SELECT
 FROM hr.employees e 
 ORDER BY e.employee_id ASC ;
 
+-- Modern way
+SELECT 
+  employee_id AS "Code",
+  last_name || ', ' || first_name AS "Names",
+  INITCAP(email || '@eisi.ues.edu.sv') AS "Email",
+  CASE 
+    WHEN phone_number LIKE '515.%' THEN 
+      REGEXP_REPLACE(phone_number, '(\d{3})\.(\d{3})\.(\d{4})', '(\1)-\2-\3')
+    ELSE 
+      '(' || REPLACE(phone_number, '.', '-') || ')'
+  END AS "Phone"
+FROM hr.employees
+ORDER BY employee_id;
+
 -- =====================================================================
 
 
@@ -471,6 +485,16 @@ ORDER BY e.employee_id ASC ;
  * is 'UK', label it 'UNKing'; otherwise, label it 'Non-UNKing'. 
  * Only show cities starting with the letter 'S'.
 */
+SELECT 
+  l.city,
+  c.country_id, 
+  CASE 
+    WHEN c.country_name = 'United Kingdom' THEN 'UNKing'
+    ELSE 'Non-UNKing'
+  END AS "Status"
+FROM hr.locations l
+JOIN hr.countries c ON l.country_id = c.country_id 
+WHERE l.city LIKE 'S%';
 
 -- =====================================================================
 
