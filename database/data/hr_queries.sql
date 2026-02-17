@@ -407,6 +407,16 @@ WHERE e.phone_number LIKE '515_________' ;
  * by a comma), salary, department ID, and department name (as "Description"). 
  * Filter for the IT department only and sort by salary in descending order.
 */
+SELECT 
+  e.employee_id,
+  CONCAT(e.first_name, ', ', e.last_name ) AS Name, 
+  e.salary, 
+  CONCAT(d.department_id, ' - ', d.department_name) AS Description 
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id 
+WHERE d.department_name ILIKE 'IT' 
+ORDER BY e.salary DESC ; 
+
 
 -- =====================================================================
 
