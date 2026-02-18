@@ -770,6 +770,7 @@ ORDER BY 2 DESC; -- Order by column 2
  * employees for departments with more than 10 employees.
 */
 
+
 -- =====================================================================
 
 
