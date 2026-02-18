@@ -769,7 +769,13 @@ ORDER BY 2 DESC; -- Order by column 2
  * Create a query that displays the department ID and the count of 
  * employees for departments with more than 10 employees.
 */
-
+SELECT 
+  d.department_id AS "Department Code",
+  COUNT(*) AS "Total Employees per Department"
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id 
+GROUP BY d.department_id 
+HAVING COUNT(*) > 10 ;
 
 -- =====================================================================
 
@@ -778,6 +784,14 @@ ORDER BY 2 DESC; -- Order by column 2
  * Develop a query that lists the last name, first name, and salary 
  * of the employee(s) with the highest salary in the entire company.
 */
+SELECT 
+    CONCAT(e.first_name, ' ', e.last_name) AS "Full Name",
+    e.salary
+FROM hr.employees e
+WHERE e.salary = (
+    SELECT MAX(salary) 
+    FROM hr.employees
+);
 
 -- =====================================================================
 
