@@ -629,6 +629,15 @@ ORDER BY d.department_name ASC;
 /* 027
  * Perform a query that shows the total number of departments per region.
 */
+SELECT 
+  r.region_name,
+  COUNT(d.department_id) AS "Total Departments"
+FROM hr.regions r
+LEFT JOIN hr.countries c ON r.region_id = c.region_id 
+LEFT JOIN hr.locations l ON c.country_id = l.country_id 
+LEFT JOIN hr.departments d ON l.location_id = d.location_id 
+GROUP BY r.region_id, r.region_name 
+ORDER BY "Total Departments" DESC ;
 
 -- =====================================================================
 
