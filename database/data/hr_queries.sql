@@ -647,6 +647,25 @@ ORDER BY "Total Departments" DESC ;
  * (excluding commissions). Display department ID, name, and total salary, 
  * sorted by total salary in descending order.
 */
+SELECT 
+  d.department_id,
+  d.department_name,
+  SUM(e.salary) AS "Total Salary" 
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id 
+GROUP BY d.department_id, d.department_name 
+ORDER BY "Total Salary" DESC ;
+
+-- Improve the query.
+SELECT 
+  d.department_id,
+  d.department_name,
+  -- TO_CHAR to format  money: L999,999,999
+  TO_CHAR(SUM(e.salary), 'L999G999G999') AS "Total Salary" 
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id 
+GROUP BY d.department_id, d.department_name 
+ORDER BY SUM(e.salary) DESC;
 
 -- =====================================================================
 
