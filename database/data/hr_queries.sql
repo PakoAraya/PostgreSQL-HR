@@ -701,6 +701,14 @@ ORDER BY 1 DESC;
  * Develop a query that displays the department ID, job ID, and 
  * employee count for departments 50 and 80, sorted by department and job.
 */
+SELECT 
+  e.department_id,
+  e.job_id,
+  COUNT(*) AS "Employees per Department"
+FROM hr.employees e 
+WHERE e.department_id IN (50, 80)
+GROUP BY e.department_id, e.job_id 
+ORDER BY e.department_id ASC, e.job_id ASC;
 
 -- =====================================================================
 
