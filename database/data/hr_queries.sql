@@ -719,6 +719,31 @@ ORDER BY e.department_id ASC, e.job_id ASC;
  * employee in the entire company.
 */
 
+/* 031
+ * Develop a query that lists the department ID, job ID, and 
+ * employee count for job positions that are held by only one 
+ * employee in the entire company.
+ * * Technical Logic: A subquery is used to identify job_ids with a 
+ * global count of 1 (entire company). The main query then filters 
+ * by these IDs to show their respective departments. 
+ * Using GROUP BY/HAVING in the main query alone would only find 
+ * uniqueness within each department, not the whole company.
+*/
+
+SELECT 
+  e.department_id AS "Department ID",
+  e.job_id AS "Job Position",
+  COUNT(*) AS "Employee Count"
+FROM hr.employees e
+WHERE e.job_id IN (
+    -- This subquery identifies job positions held by only one person company-wide
+    SELECT job_id
+    FROM hr.employees
+    GROUP BY job_id
+    HAVING COUNT(*) = 1
+)
+GROUP BY e.department_id, e.job_id;
+
 -- =====================================================================
 
 
