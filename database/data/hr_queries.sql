@@ -751,6 +751,16 @@ GROUP BY e.department_id, e.job_id;
  * Perform a query that lists the number of employees per city who earn 
  * at least $5,000. Omit cities with fewer than 3 such employees.
 */
+SELECT 
+  l.city,
+  COUNT(*) AS "Employees per City"
+FROM hr.employees e
+JOIN hr.departments d ON e.department_id = d.department_id 
+JOIN hr.locations l ON d.location_id = l.location_id 
+WHERE e.salary >= 5000  
+GROUP BY l.city
+HAVING COUNT(*) >= 3    
+ORDER BY 2 DESC; -- Order by column 2
 
 -- =====================================================================
 
