@@ -675,6 +675,24 @@ ORDER BY SUM(e.salary) DESC;
  * maximum, and average salary for all employees grouped by year. 
  * Sort by year (most recent first).
 */
+SELECT 
+  EXTRACT(YEAR FROM e.hire_date) AS "Hire Year",
+  MIN(e.salary) AS "Min Salary",
+  MAX(e.salary) AS "Max Salary",
+  ROUND(AVG(e.salary), 2) AS "Average Salary"
+FROM hr.employees e
+GROUP BY EXTRACT(YEAR FROM e.hire_date) 
+ORDER BY 1 DESC; -- reference first column
+
+-- Improve the query
+SELECT 
+  TO_CHAR(e.hire_date, 'YYYY') AS "Hire Year", -- 'YYYY' extract year 
+  MIN(e.salary) AS "Min Salary",
+  MAX(e.salary) AS "Max Salary",
+  ROUND(AVG(e.salary), 2) AS "Average Salary"
+FROM hr.employees e
+GROUP BY TO_CHAR(e.hire_date, 'YYYY') 
+ORDER BY 1 DESC;
 
 -- =====================================================================
 
